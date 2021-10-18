@@ -40,6 +40,56 @@ nav ul {
 /* Page User */
 nav ul#user_info {
   display: none;
+  align-items: center;
+}
+
+nav ul#user_info li {
+  position: relative;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+nav ul#user_info li i {
+  color: white;
+}
+
+nav ul#user_info li .badge {
+  color: white;
+  background: crimson;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -15px;
+  right: -12px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 19px;
+  display: none;
+}
+
+
+
+nav ul#user_info .carts-products {
+  position: absolute;
+  background: #e1e1e1;
+  width: 200px;
+  transform: translate(-40%, 0);
+  top: 45px;
+  border: 1px solid black;
+  padding: 10px;
+  z-index: 100;
+  opacity: .8;
+  display: none;
+}
+
+nav ul#user_info .carts-products a {
+  color: white;
+  background: red;
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+  text-align: center;
 }
 
 /* Page User */
@@ -94,4 +144,56 @@ nav ul li a {
 
 .section-form form input[type="submit"]hover {
   opacity: 0.8;
+}
+
+
+/* Products */
+
+.section-home {
+  margin-top: 100px;
+}
+
+.products {
+  margin: 16px 0;
+}
+
+
+.product-item {
+  width: 20%;
+  border: 1px solid #ddd;
+  display: inline-block;
+  margin: 30px 25px 30px 25px
+}
+
+
+.product-item-img {
+  width: 100%;
+}
+
+.product-item-des {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.product-item-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-item-actions .add-to-cart {
+  font-size: 15px;
+  background: red;
+  color: white;
+  border: 0;
+  padding: 10px 15px;
+  font-family: 'Oswald',
+    sans-serif;
+  cursor: pointer;
+
+}
+
+.product-item-actions .favorite {
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
 }
