@@ -175,6 +175,11 @@ nav ul li a {
   text-align: center;
 }
 
+.product-item-des h2 {
+  font-weight: normal;
+}
+
+
 .product-item-actions {
   display: flex;
   justify-content: space-between;

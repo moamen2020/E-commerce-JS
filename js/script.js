@@ -4,6 +4,9 @@ let cartProductDiv = document.querySelector(".carts-products div");
 let badgeCart = document.querySelector('.badge');
 let shoppingCartIcon = document.querySelector('.shoppingCart');
 
+// database
+let products = JSON.parse(localStorage.getItem('products'));
+
 shoppingCartIcon.addEventListener("click", openCartMenu);
 
 
@@ -11,7 +14,7 @@ shoppingCartIcon.addEventListener("click", openCartMenu);
   let productsUI = products.map((item) => {
     return `
     <div class="product-item">
-      <img src="${item.imageURL}" class="product-item-img" alt="HeadPhone Item">
+      <a onclick="detailsCart(${item.id})"><img src="${item.imageURL}" class="product-item-img" alt="HeadPhone Item"></a>
       <div class="product-item-des">
         <h2>${item.title}</h2>
         <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -69,3 +72,7 @@ function openCartMenu() {
   }
 }
 
+function detailsCart(id) {
+  localStorage.setItem('productId', id);
+  window.location = 'cartDetails.html';
+}

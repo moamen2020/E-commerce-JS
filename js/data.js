@@ -24,3 +24,6 @@ let products = [
     size: 'large'
   },
 ]
+
+
+localStorage.setItem('products' , JSON.stringify(products))

@@ -25,7 +25,6 @@ function drowCartProductUI( allProducts = [] ) {
   prductsDom.innerHTML = productsUI;
   badgeCart.style.display = 'block';
   badgeCart.innerHTML = products.length
-  console.log(badgeCart);
   
 }
 
