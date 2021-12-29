@@ -105,6 +105,6 @@ function search(title, myArray) {
   //   }
   // }
 
-  let arr = myArray.filter((item) => item.title === title)
+  let arr = myArray.filter((item) => item.title.indexOf(title) !== -1 )
   drowProductsUI(arr)
 }
