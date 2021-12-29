@@ -34,25 +34,46 @@ let drowProductsUI;
 let addedItem = localStorage.getItem('productsincart') ? JSON.parse(localStorage.getItem('productsincart')) : []
 
 if (addedItem) {
-addedItem.map(item => {
-cartProductDiv.innerHTML += `<p>${item.title}</p>`
-})
 
-badgeCart.style.display = 'block';
-badgeCart.innerHTML += addedItem.length
+    addedItem.map(item => {
+    cartProductDiv.innerHTML += `<p>${item.title} ${item.qty} </p>`
+  })
+
+  badgeCart.style.display = 'block';
+  badgeCart.innerHTML += addedItem.length
 }
 
+
+// Add To Cart
+
+let allItems = [];
 function addedToCart(id) {
   
   if (localStorage.getItem('username')) {
-    let choosenItem = products.find( (item) => item.id === id )
-    cartProductDiv.innerHTML += `<p>${choosenItem.title}</p>`;
+    let choosenItem = products.find((item) => item.id === id );
+    let item = allItems.find((i) => i.id === choosenItem.id);
+    if (item) {
+      choosenItem.qty += 1
+    } else {
+      allItems.push(choosenItem)
+    }
+
+    cartProductDiv.innerHTML = '';
+    allItems.forEach(item => {
+      cartProductDiv.innerHTML += `<p>${item.title} ${item.qty}</p>`;
+      
+    });
+
+
 
     addedItem = [...addedItem, choosenItem];
-    localStorage.setItem('productsincart', JSON.stringify(addedItem));
+
+    let uniqueProducts = getUniqueArr(addedItem, 'id')
+
+    
+    localStorage.setItem('productsincart', JSON.stringify(uniqueProducts));
 
     let productsLength = document.querySelectorAll('.carts-products div p');
-    console.log(productsLength)
     badgeCart.style.display = 'block';
     badgeCart.innerHTML = productsLength.length;
 
@@ -61,6 +82,20 @@ function addedToCart(id) {
   }
 
 }
+
+function getUniqueArr (array, filterType) {
+  let unique = array
+  .map((item) => item[filterType])
+  .map((ele, index, finalArr) => finalArr.indexOf(ele) === index && 1)
+  .filter((item) => array[item])
+  .map((item) => array[item])
+  return unique;
+}
+
+
+
+
+
 
 function openCartMenu() {
   if (cartProductDiv.innerHTML != "") {

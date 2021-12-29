@@ -13,7 +13,8 @@ function drowCartProductUI( allProducts = [] ) {
       <div class="product-item-des">
         <h2>${item.title}</h2>
         <p>Lorem ipsum dolor sit amet consectetur</p>
-        <span>Size : ${item.size}</span>
+        <span>Size : ${item.size}</span> <br/>
+        <span>Quantaty : ${item.qty}</span>
       </div>
       <div class="product-item-actions">
         <button class="add-to-cart" onclick="removeItemFromCart(${item.id})">Remove From Cart</button>

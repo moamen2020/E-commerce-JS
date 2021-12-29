@@ -8,5 +8,6 @@ console.log(productDetails);
 itemDom.innerHTML = `
   <img src="${productDetails.imageURL}" alt="">
   <h2>title: ${productDetails.title}</h2>
-  <span>size : ${productDetails.size}</span>
+  <span>size : ${productDetails.size}</span> <br />
+  <span>quantity : ${productDetails.qty}</span>
 `
