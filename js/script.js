@@ -9,8 +9,8 @@ let products = JSON.parse(localStorage.getItem('products'));
 
 shoppingCartIcon.addEventListener("click", openCartMenu);
 
-
-(function drowProductsUI() {
+let drowProductsUI;
+(drowProductsUI = function (products = []) {
   let productsUI = products.map((item) => {
     return `
     <div class="product-item">
@@ -29,7 +29,7 @@ shoppingCartIcon.addEventListener("click", openCartMenu);
   }).join('')
 
   prductsDom.innerHTML = productsUI
-})();
+})(JSON.parse(localStorage.getItem('products')));
 
 let addedItem = localStorage.getItem('productsincart') ? JSON.parse(localStorage.getItem('productsincart')) : []
 
@@ -75,4 +75,36 @@ function openCartMenu() {
 function detailsCart(id) {
   localStorage.setItem('productId', id);
   window.location = 'cartDetails.html';
+}
+
+
+
+
+
+
+// Search function
+
+let input_search = document.getElementById('search');
+
+input_search.addEventListener('keyup', function (e) {
+  if (e.keyCode === 13) {
+    search(e.target.value, JSON.parse(localStorage.getItem('products')))
+
+    if (e.target.value.trim() === '') {
+      drowProductsUI(JSON.parse(localStorage.getItem('products')))
+    }
+  }
+})
+
+
+function search(title, myArray) {
+  
+  // for (let i = 0; i < myArray.length; i++) {
+  //   if (myArray[i].title === title) {
+  //     console.log(myArray[i]);
+  //   }
+  // }
+
+  let arr = myArray.filter((item) => item.title === title)
+  drowProductsUI(arr)
 }

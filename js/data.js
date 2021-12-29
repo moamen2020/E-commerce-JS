@@ -1,29 +1,29 @@
-let products = [
+let productsDB = [
   {
     id: 1,
-    title: 'HeadPhone',
+    title: 'headPhone',
     imageURL: 'images/headphone.jpg',
     size: 'large'
   },
   {
     id: 2,
-    title: 'HeadPhone',
+    title: 'laptop',
     imageURL: 'images/headphone.jpg',
     size: 'large'
   },
   {
     id: 3,
-    title: 'HeadPhone',
+    title: 'phone',
     imageURL: 'images/headphone.jpg',
     size: 'large'
   },
   {
     id: 4,
-    title: 'HeadPhone',
+    title: 'computer',
     imageURL: 'images/headphone.jpg',
     size: 'large'
   },
 ]
 
 
-localStorage.setItem('products' , JSON.stringify(products))
+localStorage.setItem('products' , JSON.stringify(productsDB))
