@@ -22,7 +22,7 @@ let drowProductsUI;
       </div>
       <div class="product-item-actions">
         <button class="add-to-cart" onclick="addedToCart(${item.id})">Add To Cart</button>
-        <i class="favorite far fa-heart"></i>
+        <i class="favorite far fa-heart" style="color: ${item.liked === true ? 'red' : ''}" onclick="addedToFavourite(${item.id})"></i>
       </div>
     </div>
     `
@@ -31,6 +31,8 @@ let drowProductsUI;
   prductsDom.innerHTML = productsUI
 })(JSON.parse(localStorage.getItem('products')));
 
+
+// Check Items in LoackStorage
 let addedItem = localStorage.getItem('productsincart') ? JSON.parse(localStorage.getItem('productsincart')) : []
 
 if (addedItem) {
@@ -69,8 +71,6 @@ function addedToCart(id) {
     addedItem = [...addedItem, choosenItem];
 
     let uniqueProducts = getUniqueArr(addedItem, 'id')
-
-    
     localStorage.setItem('productsincart', JSON.stringify(uniqueProducts));
 
     let productsLength = document.querySelectorAll('.carts-products div p');
@@ -86,7 +86,7 @@ function addedToCart(id) {
 function getUniqueArr (array, filterType) {
   let unique = array
   .map((item) => item[filterType])
-  .map((ele, index, finalArr) => finalArr.indexOf(ele) === index && 1)
+  .map((ele, index, finalArr) => finalArr.indexOf(ele) === index && index)
   .filter((item) => array[item])
   .map((item) => array[item])
   return unique;
@@ -142,4 +142,34 @@ function search(title, myArray) {
 
   let arr = myArray.filter((item) => item.title.indexOf(title) !== -1 )
   drowProductsUI(arr)
+}
+
+
+
+// Add To Favourite
+
+let favouriteItems = localStorage.getItem('productsFavourite') 
+? JSON.parse(localStorage.getItem('productsFavourite')) : []
+
+
+function addedToFavourite(id) {
+
+  if (localStorage.getItem('username')) {
+
+    let choosenItem = products.find((item) => item.id === id );
+    choosenItem.liked = true;
+    favouriteItems = [...favouriteItems, choosenItem];
+    let uniqueProducts = getUniqueArr(favouriteItems, 'id')
+    localStorage.setItem('productsFavourite', JSON.stringify(uniqueProducts));
+    products.map((item) => {
+      if (item.id === choosenItem.id) {
+        item.liked = true;
+      }
+    });
+    localStorage.setItem('products', JSON.stringify(products));
+    drowProductsUI(products);
+  } else {
+    window,location = 'login.html'
+  }
+
 }
