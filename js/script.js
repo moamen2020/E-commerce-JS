@@ -70,11 +70,10 @@ function addedToCart(id) {
 
 
 
-    addedItem = [...addedItem, product];
+    // Save Data
+    localStorage.setItem('productsincart', JSON.stringify(addedItem));
 
-    let uniqueProducts = getUniqueArr(addedItem, 'id')
-    localStorage.setItem('productsincart', JSON.stringify(uniqueProducts));
-
+    // Add Counter of Items
     let productsLength = document.querySelectorAll('.carts-products div p');
     badgeCart.style.display = 'block';
     badgeCart.innerHTML = productsLength.length;
@@ -84,6 +83,9 @@ function addedToCart(id) {
   }
 
 }
+
+
+
 
 function getUniqueArr (array, filterType) {
   let unique = array
