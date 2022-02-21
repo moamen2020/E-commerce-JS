@@ -17,7 +17,7 @@ function drowFavouritesProductUI( allProducts = [] ) {
         <span>Quantaty : ${item.qty}</span>
       </div>
       <div class="product-item-actions">
-        <button class="add-to-cart">Remove From Favourit</button>
+        <button class="add-to-cart" onclick="removeItemFromCart(${item.id})">Remove From Favourit</button>
       </div>
     </div>
     `
@@ -32,15 +32,13 @@ function drowFavouritesProductUI( allProducts = [] ) {
 drowFavouritesProductUI();
 
 
-// function removeItemFromCart(id) {
-//   if (localStorage.getItem('productsFavourite')) {
-//     let items = JSON.parse(localStorage.getItem('productsFavourite'));
+function removeItemFromCart(id) {
+  if (localStorage.getItem('productsFavourite')) {
+    let items = JSON.parse(localStorage.getItem('productsFavourite'));
 
-//     let filteredItems = items.filter( item => item.id !== id)
-//     drowFavouritesProductUI(filteredItems);
-    
-//     localStorage.setItem('productsFavourite', JSON.stringify(filteredItems));
-//     drowFavouritesProductUI(filteredItems);
+    let filteredItems = items.filter( item => item.id !== id)
+    localStorage.setItem('productsFavourite', JSON.stringify(filteredItems));
+    drowFavouritesProductUI(filteredItems);
 
-//   }
-// }
+  }
+}

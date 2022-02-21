@@ -5,7 +5,7 @@ let badgeCart = document.querySelector('.badge');
 let shoppingCartIcon = document.querySelector('.shoppingCart');
 
 // database
-let products = JSON.parse(localStorage.getItem('products'));
+let products = productsDB;
 
 shoppingCartIcon.addEventListener("click", openCartMenu);
 
@@ -29,7 +29,7 @@ let drowProductsUI;
   }).join('')
 
   prductsDom.innerHTML = productsUI
-})(JSON.parse(localStorage.getItem('products')));
+})(JSON.parse(localStorage.getItem('products')) || productsDB);
 
 
 // Check Items in LoackStorage
@@ -48,27 +48,29 @@ if (addedItem) {
 
 // Add To Cart
 
-let allItems = [];
 function addedToCart(id) {
   
   if (localStorage.getItem('username')) {
-    let choosenItem = products.find((item) => item.id === id );
-    let item = allItems.find((i) => i.id === choosenItem.id);
-    if (item) {
-      choosenItem.qty += 1
+    let product = products.find((item) => item.id === id );
+    let isProductInCart = addedItem.some((i) => i.id === product.id);
+    if (isProductInCart) {
+      addedItem.map(p => {
+        if(p.id === product.id) p.qty += 1;
+        return p
+      })
     } else {
-      allItems.push(choosenItem)
+      addedItem.push(product)
     }
 
     cartProductDiv.innerHTML = '';
-    allItems.forEach(item => {
+    addedItem.forEach(item => {
       cartProductDiv.innerHTML += `<p>${item.title} ${item.qty}</p>`;
       
     });
 
 
 
-    addedItem = [...addedItem, choosenItem];
+    addedItem = [...addedItem, product];
 
     let uniqueProducts = getUniqueArr(addedItem, 'id')
     localStorage.setItem('productsincart', JSON.stringify(uniqueProducts));
