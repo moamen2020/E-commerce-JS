@@ -13,6 +13,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/createProduct.css">
   </head>
   <body>
     <!-- Start Header -->
@@ -48,20 +49,29 @@
       </div>
     </header>
     <!-- End Header -->
-    <!-- Start Form -->
-    <section class="section-home">
+    <!-- Form -->
+    <section class="create-product-page">
       <div class="container">
-        <input placeholder="Search By Name" type="text" id="search">
-        <div class="products"></div>
-      </div>
+        <form id="create-form">
+          <input type="text" placeholder="Name ..." id="product-name">
+          <input type="text" placeholder="Description ..." id="product-desc">
+          <input type="file" name="" id="upload-image-file">
+          <select name="" id="product-size">
+            <option value="" hidden>Select</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
 
-      <a href="createProduct.html" class="create-product-icon">
-        <i class='fa fa-plus'></i>
-      </a>
+          <input type="submit" value="Create">
+        </form>
+      </div>
     </section>
-    <!-- End Form -->
+    <!-- Form -->
+
+
     <script src="js/checkUser.js"></script>
+    <script src="js/createProduct.js"></script>
     <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
   </body>
 </html>

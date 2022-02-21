@@ -17,7 +17,7 @@ let drowProductsUI;
       <a onclick="detailsCart(${item.id})"><img src="${item.imageURL}" class="product-item-img" alt="HeadPhone Item"></a>
       <div class="product-item-des">
         <h2>${item.title}</h2>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <p>${item.description}</p>
         <span>Size : ${item.size}</span>
       </div>
       <div class="product-item-actions">

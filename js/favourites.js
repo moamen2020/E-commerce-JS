@@ -12,7 +12,7 @@ function drowFavouritesProductUI( allProducts = [] ) {
       <img src="${item.imageURL}" class="product-item-img" alt="HeadPhone Item">
       <div class="product-item-des">
         <h2>${item.title}</h2>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <p>${item.description}</p>
         <span>Size : ${item.size}</span> <br/>
         <span>Quantaty : ${item.qty}</span>
       </div>
