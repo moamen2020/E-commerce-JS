@@ -51,6 +51,7 @@ if (addedItem) {
 function addedToCart(id) {
   
   if (localStorage.getItem('username')) {
+    let products = JSON.parse(localStorage.getItem('products')) || products;
     let product = products.find((item) => item.id === id );
     let isProductInCart = addedItem.some((i) => i.id === product.id);
     if (isProductInCart) {
@@ -144,7 +145,7 @@ function search(title, myArray) {
   //   }
   // }
 
-  let arr = myArray.filter((item) => item.title.indexOf(title) !== -1 )
+  let arr = myArray.filter((item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1 )
   drowProductsUI(arr)
 }
 
@@ -176,4 +177,24 @@ function addedToFavourite(id) {
     window,location = 'login.html'
   }
 
+}
+
+
+
+// Filter Products By Size
+let sizeFilter = document.getElementById('size-filter');
+
+sizeFilter.addEventListener('change', getProductsFilteredBySize);
+
+
+function getProductsFilteredBySize(e) {
+  let value = e.target.value;
+  let products = JSON.parse(localStorage.getItem('products')) || products;
+
+  if(value === 'all') {
+    drowProductsUI(products);
+  }else {
+    products = products.filter(i => i.size === value)
+    drowProductsUI(products);
+  }
 }

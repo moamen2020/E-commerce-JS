@@ -45,6 +45,11 @@ function createProductFun(e) {
     nameValue = "";
     descValue = "";
     productSizeSelect.value = ""
+
+    setTimeout(() => {
+      window.location = 'index.html';
+    }, 800);
+
   } else {
     alert("Enter Data ...")
   }
