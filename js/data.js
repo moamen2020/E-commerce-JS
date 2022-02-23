@@ -5,7 +5,8 @@ let productsDB = [
     imageURL: 'images/headphone.jpg',
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
-    qty: 1
+    qty: 1,
+    isMe: 'N'
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ let productsDB = [
     imageURL: 'images/headphone.jpg',
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
-    qty: 1
+    qty: 1,
+    isMe: 'N'
   },
   {
     id: 3,
@@ -21,7 +23,8 @@ let productsDB = [
     imageURL: 'images/headphone.jpg',
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
-    qty: 1
+    qty: 1,
+    isMe: 'N'
   },
   {
     id: 4,
@@ -29,7 +32,8 @@ let productsDB = [
     imageURL: 'images/headphone.jpg',
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
-    qty: 1
+    qty: 1,
+    isMe: 'N'
   },
 ]
 

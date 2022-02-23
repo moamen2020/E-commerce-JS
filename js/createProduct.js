@@ -23,7 +23,7 @@ function getProductSizeValue(e) {
 
 
 function createProductFun(e) {
-  e.preventDefault;
+  e.preventDefault();
   let allProducts = JSON.parse(localStorage.getItem('products')) || productsDB; 
   let nameValue = productName.value;
   let descValue = productDesc.value;
@@ -36,7 +36,8 @@ function createProductFun(e) {
       imageURL: uploadImageURL,
       size: productSizeValue,
       description: descValue,
-      qty: 1
+      qty: 1,
+      isMe: 'Y'
     };
   
     let newProducts = (allProducts ? [...allProducts, product] : [product]) ;

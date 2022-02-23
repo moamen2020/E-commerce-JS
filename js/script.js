@@ -13,12 +13,14 @@ let drowProductsUI;
 (drowProductsUI = function (products = []) {
   let productsUI = products.map((item) => {
     return `
-    <div class="product-item">
+    <div class="product-item" style="border: ${item.isMe === "Y" ? "2px solid black" : "2px solid red"}" >
       <a onclick="detailsCart(${item.id})"><img src="${item.imageURL}" class="product-item-img" alt="HeadPhone Item"></a>
       <div class="product-item-des">
         <h2>${item.title}</h2>
         <p>${item.description}</p>
         <span>Size : ${item.size}</span>
+
+        ${item.isMe === "Y" ? "<button class='edit-product' onClick='editProduct(" + item.id + ")'>Edit Product</button>" : ""}
       </div>
       <div class="product-item-actions">
         <button class="add-to-cart" onclick="addedToCart(${item.id})">Add To Cart</button>
@@ -47,7 +49,6 @@ if (addedItem) {
 
 
 // Add To Cart
-
 function addedToCart(id) {
   
   if (localStorage.getItem('username')) {
@@ -123,7 +124,6 @@ function detailsCart(id) {
 
 
 // Search function
-
 let input_search = document.getElementById('search');
 
 input_search.addEventListener('keyup', function (e) {
@@ -152,7 +152,6 @@ function search(title, myArray) {
 
 
 // Add To Favourite
-
 let favouriteItems = localStorage.getItem('productsFavourite') 
 ? JSON.parse(localStorage.getItem('productsFavourite')) : []
 
@@ -197,4 +196,12 @@ function getProductsFilteredBySize(e) {
     products = products.filter(i => i.size === value)
     drowProductsUI(products);
   }
+}
+
+
+// Edit Product
+function editProduct(id) {
+  localStorage.setItem('editProduct', id)
+
+  window.location = 'editProduct.html'
 }

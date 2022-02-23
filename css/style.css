@@ -203,6 +203,20 @@ nav ul li a {
   text-align: center;
 }
 
+
+.product-item-des .edit-product {
+  display: block;
+  width: 100px;
+  border: none;
+  background: #333;
+  color: #FFF;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 53px;
+  font-weight: bold;
+}
+
+
 .product-item-des h2 {
   font-weight: normal;
 }
