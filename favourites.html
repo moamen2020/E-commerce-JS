@@ -20,7 +20,6 @@
       <div class="container">
         <div class="header-content">
           <a href="index.html" class="brand">Shopping Cart </a>
-
           <nav>
             <ul id="links">
               <li><a href="login.html"> Sign In </a></li>
@@ -28,6 +27,8 @@
             </ul>
             <ul id="user_info">
               <li><a href="#" id="user"></a></li>
+              <li><a href="favourites.html" > favourites</a></li>
+              <li><a href="myProducts.html" > My Products</a></li>
               <li class="shoppingCart">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="badge"></span>
@@ -40,8 +41,7 @@
               </li>
               <li><a href="#" id="logout">Log out</a></li>
             </ul>
-          </nav>
-          
+          </nav>  
         </div>
       </div>
     </header>
@@ -50,9 +50,14 @@
     <section class="section-home">
       <div class="container">
         <div class="products"></div>
+
+        <a href="createProduct.html" class="create-product-icon">
+          <i class='fa fa-plus'></i>
+        </a>
     </section>
     <!-- End Form -->
     <script src="js/checkUser.js"></script>
     <script src="js/favourites.js"></script>
+    <script src="js/cartMenu.js"></script>
   </body>
 </html>

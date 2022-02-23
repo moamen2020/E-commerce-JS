@@ -4,19 +4,18 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Shopping Cart | Edit Product Page</title>
+      <title>Shopping Cart | My Products Products</title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
-
+      
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
       <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/createProduct.css">
   </head>
   <body>
-    <!-- Start Header -->
+      <!-- Start Header -->
     <header>
       <div class="container">
         <div class="header-content">
@@ -47,33 +46,20 @@
       </div>
     </header>
     <!-- End Header -->
-    <!-- Form -->
-    <section class="create-product-page">
+    <!-- Start Form -->
+    <section class="section-home">
       <div class="container">
-        <form id="update-form">
-          <input type="text" placeholder="Name ..." id="product-name">
-          <input type="text" placeholder="Description ..." id="product-desc">
-          <input type="file" name="" id="upload-image-file">
-          <select name="" id="product-size">
-            <option value="" hidden>Select</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-          </select>
+        <div class="products"></div>
+        <div class="noProducts"></div>
 
-          <input type="submit" value="Update">
-        </form>
-      </div>
-      <a href="createProduct.html" class="create-product-icon">
-        <i class='fa fa-plus'></i>
-      </a>
+        <a href="createProduct.html" class="create-product-icon">
+          <i class='fa fa-plus'></i>
+        </a>
     </section>
-    <!-- Form -->
-
-
+    <!-- End Form -->
     <script src="js/checkUser.js"></script>
     <script src="js/data.js"></script>
-    <script src="js/editProduct.js"></script>
     <script src="js/cartMenu.js"></script>
+    <script src="js/myProducts.js"></script>
   </body>
 </html>

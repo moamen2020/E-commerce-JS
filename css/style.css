@@ -90,6 +90,7 @@ nav ul#user_info .carts-products a {
   display: block;
   cursor: pointer;
   text-align: center;
+  margin-top: 10px;
 }
 
 /* Page User */
@@ -204,7 +205,8 @@ nav ul li a {
 }
 
 
-.product-item-des .edit-product {
+.product-item-des .edit-product,
+.product-item-des .delete-product {
   display: block;
   width: 100px;
   border: none;
@@ -215,6 +217,15 @@ nav ul li a {
   margin-left: 53px;
   font-weight: bold;
 }
+
+.product-item-des .delete-product {
+  background: rgb(170, 11, 11);
+  width: 55%;
+  margin-top: 10px;
+  margin-left: 45px;
+}
+
+
 
 
 .product-item-des h2 {
@@ -246,6 +257,13 @@ nav ul li a {
 }
 
 
+/* No Products */
+.section-home .noProducts {
+  text-align: center;
+  font-size: 30px;
+}
+
+
 /* ******* Create Product ******** */
 
 .create-product-icon {
@@ -264,4 +282,30 @@ nav ul li a {
 
 .create-product-icon:hover {
   opacity: 0.8;
+}
+
+
+.item-qty {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+
+.item-details .edit-product {
+  display: block;
+  width: 100px;
+  border: none;
+  background: #333;
+  color: #FFF;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 53px;
+  font-weight: bold;
 }

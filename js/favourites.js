@@ -1,5 +1,4 @@
 let prductsDom = document.querySelector('.products');
-let badgeCart = document.querySelector('.badge');
 
 
 function drowFavouritesProductUI( allProducts = [] ) {

@@ -1,8 +1,11 @@
 let prductsDom = document.querySelector('.products');
-let badgeCart = document.querySelector('.badge');
+// let badgeCart = document.querySelector('.badge');
 
 
 function drowCartProductUI( allProducts = [] ) {
+
+  if(JSON.parse(localStorage.getItem("productsincart")).length === 0)
+    prductsDom.innerHTML = "There is no items !!"
 
   let products = JSON.parse(localStorage.getItem('productsincart')) || allProducts;
 

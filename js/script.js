@@ -1,13 +1,8 @@
 let prductsDom = document.querySelector('.products');
-let cartProductItem = document.querySelector(".carts-products");
-let cartProductDiv = document.querySelector(".carts-products div");
-let badgeCart = document.querySelector('.badge');
-let shoppingCartIcon = document.querySelector('.shoppingCart');
 
 // database
 let products = productsDB;
 
-shoppingCartIcon.addEventListener("click", openCartMenu);
 
 let drowProductsUI;
 (drowProductsUI = function (products = []) {
@@ -34,20 +29,6 @@ let drowProductsUI;
 })(JSON.parse(localStorage.getItem('products')) || productsDB);
 
 
-// Check Items in LoackStorage
-let addedItem = localStorage.getItem('productsincart') ? JSON.parse(localStorage.getItem('productsincart')) : []
-
-if (addedItem) {
-
-    addedItem.map(item => {
-    cartProductDiv.innerHTML += `<p>${item.title} ${item.qty} </p>`
-  })
-
-  badgeCart.style.display = 'block';
-  badgeCart.innerHTML += addedItem.length
-}
-
-
 // Add To Cart
 function addedToCart(id) {
   
@@ -66,7 +47,7 @@ function addedToCart(id) {
 
     cartProductDiv.innerHTML = '';
     addedItem.forEach(item => {
-      cartProductDiv.innerHTML += `<p>${item.title} ${item.qty}</p>`;
+      cartProductDiv.innerHTML += `<p>${item.title} <span class='item-qty'>${item.qty}</span></p>`;
       
     });
 
@@ -87,8 +68,6 @@ function addedToCart(id) {
 }
 
 
-
-
 function getUniqueArr (array, filterType) {
   let unique = array
   .map((item) => item[filterType])
@@ -98,29 +77,10 @@ function getUniqueArr (array, filterType) {
   return unique;
 }
 
-
-
-
-
-
-function openCartMenu() {
-  if (cartProductDiv.innerHTML != "") {
-    if (cartProductItem.style.display != 'block') {
-      cartProductItem.style.display =  'block'
-    } else {
-      cartProductItem.style.display =  'none'
-    }
-  }
-}
-
 function detailsCart(id) {
   localStorage.setItem('productId', id);
   window.location = 'cartDetails.html';
 }
-
-
-
-
 
 
 // Search function
@@ -150,12 +110,9 @@ function search(title, myArray) {
 }
 
 
-
 // Add To Favourite
 let favouriteItems = localStorage.getItem('productsFavourite') 
-? JSON.parse(localStorage.getItem('productsFavourite')) : []
-
-
+? JSON.parse(localStorage.getItem('productsFavourite')) : [];
 function addedToFavourite(id) {
 
   if (localStorage.getItem('username')) {
@@ -177,7 +134,6 @@ function addedToFavourite(id) {
   }
 
 }
-
 
 
 // Filter Products By Size
