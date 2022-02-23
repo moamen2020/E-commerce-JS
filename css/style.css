@@ -309,3 +309,26 @@ nav ul li a {
   margin-left: 53px;
   font-weight: bold;
 }
+
+
+/* 
+  Element Profile Page
+*/
+
+.profile-page .user-avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.profile-page .link-edit-page {
+  display: inline-block;
+  border: none;
+  background: #333;
+  color: #FFF;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 10px;
+}
