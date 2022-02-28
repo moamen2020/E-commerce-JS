@@ -9,4 +9,7 @@
   <li>Authentications</li>
   <li>CRUD Operations</li>
   <li>saving data in localstorage</li>
+  <li>View the cart and remove items from it</li>
+  <li>responsive Mobile, tablet and desktop </li>
+  <li>Edit your account name and email</li>
 </ul>
