@@ -1,11 +1,12 @@
 let prductsDom = document.querySelector('.products');
 
 // database
-let products = productsDB;
+let products = JSON.parse(localStorage.getItem('products'));
+console.log(products);
 
 
 let drowProductsUI;
-(drowProductsUI = function (products = []) {
+(drowProductsUI = function (products) {
   let productsUI = products.map((item) => {
     return `
     <div class="product-item" style="border: ${item.isMe === "Y" ? "2px solid black" : "2px solid red"}" >
@@ -19,14 +20,14 @@ let drowProductsUI;
       </div>
       <div class="product-item-actions">
         <button class="add-to-cart" onclick="addedToCart(${item.id})">Add To Cart</button>
-        <i class="favorite far fa-heart" style="color: ${item.liked === true ? 'red' : ''}" onclick="addedToFavourite(${item.id})"></i>
+        <i class="favorite far fa-heart" onclick="addedToFavourite(${item.id})" style="color: ${item.liked === true ? 'red' : ''}"></i>
       </div>
     </div>
     `
   }).join('')
 
   prductsDom.innerHTML = productsUI
-})(JSON.parse(localStorage.getItem('products')) || productsDB);
+})(JSON.parse(localStorage.getItem('products')));
 
 
 // Add To Cart
@@ -62,7 +63,7 @@ function addedToCart(id) {
     badgeCart.innerHTML = productsLength.length;
 
   } else {
-    window,location = 'login.html'
+    window.location = 'login.html'
   }
 
 }
@@ -130,10 +131,10 @@ function addedToFavourite(id) {
     localStorage.setItem('products', JSON.stringify(products));
     drowProductsUI(products);
   } else {
-    window,location = 'login.html'
+    window.location = 'login.html'
   }
-
 }
+
 
 
 // Filter Products By Size

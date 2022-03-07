@@ -23,8 +23,8 @@ function drowFavouritesProductUI( allProducts = [] ) {
   }).join('')
 
   prductsDom.innerHTML = productsUI;
-  badgeCart.style.display = 'block';
-  badgeCart.innerHTML = products.length
+  // badgeCart.style.display = 'block';
+  // badgeCart.innerHTML = products.length
   
 }
 
@@ -34,7 +34,16 @@ drowFavouritesProductUI();
 function removeItemFromCart(id) {
   if (localStorage.getItem('productsFavourite')) {
     let items = JSON.parse(localStorage.getItem('productsFavourite'));
+    let products = JSON.parse(localStorage.getItem('products'));
 
+    let deleteColorFavourite = products.find((item) => item.id == id)
+    deleteColorFavourite.liked = false;
+    console.log(deleteColorFavourite);
+    let deleteProduct = products.filter( item => item.id !== id)
+    products = [...deleteProduct, deleteColorFavourite];
+    console.log(products)
+
+    localStorage.setItem('products', JSON.stringify(products));
     let filteredItems = items.filter( item => item.id !== id)
     localStorage.setItem('productsFavourite', JSON.stringify(filteredItems));
     drowFavouritesProductUI(filteredItems);

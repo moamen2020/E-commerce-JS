@@ -6,7 +6,8 @@ let productsDB = [
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
     qty: 1,
-    isMe: 'N'
+    isMe: 'N',
+    liked: false
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ let productsDB = [
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
     qty: 1,
-    isMe: 'N'
+    isMe: 'N',
+    liked: false
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ let productsDB = [
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
     qty: 1,
-    isMe: 'N'
+    isMe: 'N',
+    liked: false
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ let productsDB = [
     description: 'Lorem ipsum dolor sit amet consectetur',
     size: 'large',
     qty: 1,
-    isMe: 'N'
+    isMe: 'N',
+    liked: false
   },
 ]
 
